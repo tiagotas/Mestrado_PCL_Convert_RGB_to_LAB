@@ -1,0 +1,47 @@
+EXPERIMENTOS CONVERSÃO: RGB -> LAB
+
+Converter com algoritmo formal:
+ - Tudo OK. No CC as cores são mais vívidas.
+   Arquivo PCD salvo com sucesso.
+ - As coorenadas LAB tem sinais negativos e 
+   números decimais.
+
+Converter com OpenCV:
+ - Tudo OK. No CC as cores são um pouco menos
+   vívidas, porém abrem muito semelhante ao
+   arquivo convertido no formato tradicional.
+   Há uma diferença no histograma, mas provavelmente
+   em razão da ausência das casas decimais.
+ - Arquivo PCD salvo com sucesso.
+ - Pergunta sobre os tipos de dados como inteiros:
+   https://stackoverflow.com/questions/50571398/clarification-on-conversion-between-rgb-and-cielab
+
+SALVAR ARQUIVOS:
+ - O arquivo convertido para LAB com a OpenCV pode
+   ser salvo em arquivo PLY, com o cabeçalho de cores
+   em LAB.
+ - Se este arquivo tentar ser aberto pelos programas
+   um erro é disparado: cabeçalho não bate, na porque
+   é esperanda uma nuvem com RGB.
+
+- SOLUÇÃO: salvar o arquivo com as cores em LAB num
+  arquivo RGB, porém este deve ser um BINARY. Os arquivos
+  ASCII apresentam erro na leitura do programa, embora abram 
+  normalmente no MeshLab e CC.
+  - Abri o arquivo com os dados em LAB convertidos pela
+    OpenCV no CC, salvei o arquivo PLY como BINNARY. Assim
+    o Programa de RG conseguiu ler o arquivo perfeitamente.
+
+______________________________________________________________
+AVALIAÇÃO DA SEGMENTAÇÃO FAKE:
+
+- A segmentação com FAKE RGB funcionou. No cenário 24
+  foram gerados menos clusters em LAB do q em RGB.
+- As regiões de anidrose foram detectadas, mas hipoidrose
+  não.
+
+
+
+
+
+
